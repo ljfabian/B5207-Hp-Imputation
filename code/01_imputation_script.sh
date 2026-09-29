@@ -44,8 +44,8 @@ java -Xmx8g -jar ../data/beagle/beagle.25Nov19.28d.jar
 ##########
 module load apps/plink1.9
 plink --bfile $input --chr 16 --from-bp 71070878  --to-bp 73097663 --make-bed --out $TEMP_DIR/inputQC
-plink --bfile $TEMP_DIR/inputQC --geno 0.1 --maf 0.05 --hwe 0.0000000001 --make-bed --out $TEMP_DIR/inputQC
-plink --bfile $TEMP_DIR/inputQC --freq --out $TEMP_DIR/inputQCf
+plink --bfile $TEMP_DIR/inputQC --geno 0.1 --maf 0.05 --hwe 0.0000000001 --make-bed --out $TEMP_DIR/inputQCfilter
+plink --bfile $TEMP_DIR/inputQCfilter --freq --out $TEMP_DIR/inputQCf
 
 perl software/HRC-1000G-check-bim.pl -b $TEMP_DIR/inputQC.bim -f $TEMP_DIR/inputQCf.frq -r software/HRC.r1-1.GRCh37.wgs.mac5.sites.tab -h 
 
